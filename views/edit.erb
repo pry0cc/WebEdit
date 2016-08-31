@@ -8,23 +8,20 @@
   <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 
   <script>
+  $(document).ready(function() {
+    $("button").click(function() {
 
-  function Bitch() {
-    var document_text = document.getElementById("new").innerText;
+      var document_text = $("div#new").text();
+      $.post("/edit/<%= @key %>",
+      {
+        new: document_text
+      },
+      function(){
+        // alert("SAVED AND DONE!");
+      });
+    });
+  });
 
-  }
-
-  $(document).ready(function() {});
-
-  function updateFile() {
-    $.ajax({
-        type: "POST",
-        url: "http://127.0.0.1/edit/helloworld",
-        success: function(result){
-          alert("WHAT");
-        }
-    })
-  }
 
   </script>
 
@@ -38,7 +35,7 @@
     #editor {
         margin: 0;
         position: absolute;
-        top: 0;
+        top: 40px;
         bottom: 0;
         left: 0;
         right: 0;
@@ -47,11 +44,10 @@
 </head>
 <body>
 
-<form method="post" action="/edit/<%= @key %>" >
+<button id="submit"> Bruh </button>
 <pre id="editor">
 <%= @data %>
 </pre>
-</form>
 
 <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
