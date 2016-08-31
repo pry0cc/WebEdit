@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/js/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+  <script>
+
+  function Bitch() {
+    var document_text = document.getElementById("new").innerText;
+
+  }
+
+  $(document).ready(function() {});
+
+  function updateFile() {
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1/edit/helloworld",
+        success: function(result){
+          alert("WHAT");
+        }
+    })
+  }
+
+  </script>
+
+  <title>Editing <%= @title %></title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+        background-color: #141414;
+    }
+
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+  </style>
+</head>
+<body>
+
+<form method="post" action="/edit/<%= @key %>" >
+<pre id="editor">
+<%= @data %>
+</pre>
+</form>
+
+<script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+	editor.session.setMode("<%= @mode %>");
+</script>
+
+</body>
+</html>
