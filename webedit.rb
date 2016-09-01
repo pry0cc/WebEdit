@@ -32,7 +32,12 @@ post '/edit/' + key do
 	parsed = Nokogiri::HTML(new_data).css(".ace_line")
 
 	for element in parsed do
-		@file.write(element.text + "\n")
+
+		if parsed.index(element) != (parsed.length - 1)
+			@file.write(element.text + "\n")
+		else
+			@file.write(element.text)
+		end
 	end
 
 	@file.close
