@@ -2,6 +2,7 @@
 
 require 'sinatra'
 require 'nokogiri'
+set :environment, :production
 
 filename = ARGV[0]
 
