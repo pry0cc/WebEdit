@@ -1,7 +1,4 @@
-cmon
+hello world
 
 
-
-man this is cool
-
-sdf
+this is my funky file
