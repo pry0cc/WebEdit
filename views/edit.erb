@@ -11,7 +11,9 @@
   $(document).ready(function() {
     $("button").click(function() {
 
-      var document_text = $("div#new").text();
+      var document_text = document.getElementById("new").innerHTML;
+      // var document_text = $("div#new").HTML();
+      alert(document_text)
       $.post("/edit/<%= @key %>",
       {
         new: document_text

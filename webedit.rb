@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'sinatra'
+require 'nokogiri'
 
 filename = ARGV[0]
 
@@ -28,8 +29,11 @@ end
 post '/edit/' + key do
 	@file = File.open(filename, "w")
 	new_data = params["new"]
-	puts new_data
-	@file.write(new_data)
+	parsed = Nokogiri::HTML(new_data).css(".ace_line")
+
+	for element in parsed do
+		@file.write(element.text + "\n")
+	end
 
 	@file.close
 
