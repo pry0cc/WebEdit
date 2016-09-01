@@ -10,6 +10,7 @@ ip = "127.0.0.1"
 
 set :public_folder, 'public'
 puts "go to http://#{ip}:4567/code/#{key}"
+project_dir = File.dirname(__FILE__)
 
 get '/code/' + key do
 	@file = File.open(filename, "r")
@@ -23,7 +24,7 @@ get '/code/' + key do
 end
 
 get '/js/:file' do
-	File.read("js/" + params["file"])
+	File.read(project_dir + "/js/" + params["file"])
 end
 
 post '/edit/' + key do
