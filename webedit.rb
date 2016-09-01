@@ -24,6 +24,7 @@ get '/code/' + key do
 end
 
 get '/js/:file' do
+	content_type "text/javascript"
 	File.read(project_dir + "/js/" + params["file"])
 end
 
