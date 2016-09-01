@@ -5,8 +5,14 @@ require 'nokogiri'
 
 filename = ARGV[0]
 
+puts "Detecting language..."
+require 'linguist'
+lang = Linguist::FileBlob.new(filename).language.to_s.downcase
+puts "Document Language detected as #{@language}"
+
+
 key = "helloworld"
-ip = "127.0.0.1"
+ip = "0.0.0.0"
 
 set :public_folder, 'public'
 puts "go to http://#{ip}:4567/code/#{key}"
@@ -19,7 +25,7 @@ get '/code/' + key do
 	@ip = ip
 	@file.close
 	@key = key
-	@mode = "ace/mode/text"
+	@mode = "ace/mode/#{lang}"
 	erb :edit
 end
 
