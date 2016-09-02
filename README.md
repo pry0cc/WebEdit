@@ -25,6 +25,10 @@ Thirdly actually install it!
 
 This command will generate a unique link, that you can use to edit the file. It will start up a webserver, let you edit the file, save it, and then when you close webedit, the webserver shuts down. 
 
+#### Screenshots
+![Editing Vagrant File](https://i.imgur.com/EQu5r8c.png)
+![Syntax selection is fancy!](https://i.imgur.com/KdmQCXL.png)
+
 #### Mentions 
 [Ace.JS](http://ace.c9.io/) for the editor frontend, Sinatra for as the base, [Keypress](https://dmauro.github.io/Keypress/) for shortcuts.
 
