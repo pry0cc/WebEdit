@@ -9,6 +9,11 @@
   <script src="/js/keypress-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/js/bootstrap-select.min.js"></script>
 
   <title>Editing <%= @title %></title>
   <style type="text/css" media="screen">
@@ -49,9 +54,159 @@
     <!-- <button type="button" id="submit" class="btn btn-default navbar-btn">Save</button> -->
     <a class="navbar-brand" href="#">WebEdit</a>
     <ul class="nav navbar-nav">
-        <li id="submit" class="active"><a href="#">Save <span class="sr-only">(current)</span></a></li>
-        <li><p class="navbar-text"><span id="save_indicator" class="glyphicon glyphicon-ok" aria-hidden="true"></span></p></li>
+      <li id="submit" class="active"><a href="#">Save <span class="sr-only">(current)</span></a></li>
+      <li><p class="navbar-text"><span id="save_indicator" class="glyphicon glyphicon-ok" aria-hidden="true"></span></p></li>
     </ul>
+    <!-- <div class="form-group">
+
+    </div> -->
+        <form class="navbar-form navbar-right">
+          <!-- <div class="form-group">
+          </div> -->
+          <select data-live-search="true" class="selectpicker">
+            <option>abap</option>
+            <option>abc</option>
+            <option>actionscript</option>
+            <option>ada</option>
+            <option>apache_conf</option>
+            <option>applescript</option>
+            <option>asciidoc</option>
+            <option>assembly_x86</option>
+            <option>autohotkey</option>
+            <option>batchfile</option>
+            <option>c9search</option>
+            <option>c_cpp</option>
+            <option>cirru</option>
+            <option>clojure</option>
+            <option>cobol</option>
+            <option>coffee</option>
+            <option>coldfusion</option>
+            <option>csharp</option>
+            <option>css</option>
+            <option>curly</option>
+            <option>dart</option>
+            <option>diff</option>
+            <option>django</option>
+            <option>d</option>
+            <option>dockerfile</option>
+            <option>dot</option>
+            <option>drools</option>
+            <option>eiffel</option>
+            <option>ejs</option>
+            <option>elixir</option>
+            <option>elm</option>
+            <option>erlang</option>
+            <option>forth</option>
+            <option>fortran</option>
+            <option>ftl</option>
+            <option>gcode</option>
+            <option>gherkin</option>
+            <option>gitignore</option>
+            <option>glsl</option>
+            <option>gobstones</option>
+            <option>golang</option>
+            <option>groovy</option>
+            <option>haml</option>
+            <option>handlebars</option>
+            <option>haskell_cabal</option>
+            <option>haskell</option>
+            <option>haxe</option>
+            <option>html_elixir</option>
+            <option>html</option>
+            <option>html_ruby</option>
+            <option>ini</option>
+            <option>io</option>
+            <option>jack</option>
+            <option>jade</option>
+            <option>java</option>
+            <option>javascript</option>
+            <option>jsoniq</option>
+            <option>json</option>
+            <option>jsp</option>
+            <option>jsx</option>
+            <option>julia</option>
+            <option>kotlin</option>
+            <option>latex</option>
+            <option>lean</option>
+            <option>less</option>
+            <option>liquid</option>
+            <option>lisp</option>
+            <option>live_script</option>
+            <option>livescript</option>
+            <option>logiql</option>
+            <option>lsl</option>
+            <option>lua</option>
+            <option>luapage</option>
+            <option>lucene</option>
+            <option>makefile</option>
+            <option>markdown</option>
+            <option>mask</option>
+            <option>matlab</option>
+            <option>mavens_mate_log</option>
+            <option>maze</option>
+            <option>mel</option>
+            <option>mips_assembler</option>
+            <option>mipsassembler</option>
+            <option>mushcode</option>
+            <option>mysql</option>
+            <option>nix</option>
+            <option>nsis</option>
+            <option>objectivec</option>
+            <option>ocaml</option>
+            <option>pascal</option>
+            <option>perl</option>
+            <option>pgsql</option>
+            <option>php</option>
+            <option>plain_text</option>
+            <option>powershell</option>
+            <option>praat</option>
+            <option>prolog</option>
+            <option>properties</option>
+            <option>protobuf</option>
+            <option>python</option>
+            <option>razor</option>
+            <option>rdoc</option>
+            <option>rhtml</option>
+            <option>r</option>
+            <option>rst</option>
+            <option>ruby</option>
+            <option>rust</option>
+            <option>sass</option>
+            <option>scad</option>
+            <option>scala</option>
+            <option>scheme</option>
+            <option>scss</option>
+            <option>sh</option>
+            <option>sjs</option>
+            <option>smarty</option>
+            <option>snippets</option>
+            <option>soy_template</option>
+            <option>space</option>
+            <option>sql</option>
+            <option>sqlserver</option>
+            <option>stylus</option>
+            <option>svg</option>
+            <option>swift</option>
+            <option>swig</option>
+            <option>tcl</option>
+            <option>tex</option>
+            <option>textile</option>
+            <option>text</option>
+            <option>toml</option>
+            <option>tsx</option>
+            <option>twig</option>
+            <option>typescript</option>
+            <option>vala</option>
+            <option>vbscript</option>
+            <option>velocity</option>
+            <option>verilog</option>
+            <option>vhdl</option>
+            <option>wollok</option>
+            <option>xml</option>
+            <option>xquery</option>
+            <option>yaml</option>
+          </select>
+        </form>
   </div>
 </nav>
 <pre id="editor">
@@ -62,7 +217,7 @@
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
-	editor.session.setMode("<%= @mode %>");
+	  editor.session.setMode("<%= @mode %>");
 
   // save status, 1 = saved, 0 = not saved 2 = saving
   let save_status = 1;

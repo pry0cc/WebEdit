@@ -2,15 +2,11 @@
 
 require 'sinatra'
 require 'nokogiri'
+require 'linguist'
 
 set :environment, :production
 
 filename = ARGV[0]
-
-puts "Detecting language..."
-require 'linguist'
-lang = Linguist::FileBlob.new(filename).language.to_s.downcase
-puts "Document Language detected as #{@language}"
 
 def gen_random_string(len)
    (0...len).collect{rand(36).to_s(36)}.map{|x|
@@ -27,11 +23,18 @@ puts "go to http://#{ip}:4567/code/#{key}"
 project_dir = "/usr/share/webedit"
 
 get '/code/' + key do
-	@file = File.open(filename, "r")
-	@data = @file.read
+	lang = ""
+	if File.exists? filename
+		lang = Linguist::FileBlob.new(filename).language.to_s.downcase
+		@file = File.open(filename, "r")
+		@data = @file.read
+		@file.close
+	else
+		@data = ""
+		lang = "text"
+	end
 	@title = filename
 	@ip = ip
-	@file.close
 	@key = key
 	@mode = "ace/mode/#{lang}"
 	erb :edit
