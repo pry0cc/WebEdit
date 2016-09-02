@@ -8,6 +8,8 @@ Say goodbye to editing files with SSH & Nano/Vim/Vi; Say hello to WebEdit!
 
 WebEdit is a HTML5 text editor, that you run on your server. You'll see how it works.
 
+Its like, python -m http.server and a text editor had a baby, and their baby grew new limbs. 
+
 #### Installation...
 
 Firstly clone the repo

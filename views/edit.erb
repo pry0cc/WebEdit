@@ -19,26 +19,26 @@
   <style type="text/css" media="screen">
     body {
         overflow: hidden;
-        background-color: #222222;
+        background-color: #141414;
     }
 
     #editor {
         margin: 0;
         position: absolute;
-        top: 50px;
+        top: 70px;
         bottom: 0;
         left: 0;
         right: 0;
         border-color: #222222;
     }
 
-    .ace_gutter {
+    /*.ace_gutter {
       padding-top: 15px;
     }
 
     .ace_scroller {
       padding-top: 15px;
-    }
+    }*/
 
     .navbar {
       border-bottom-color: #222222;
@@ -244,7 +244,7 @@
 
   function changeSyntax(syntax) {
     editor.session.setMode("ace/mode/" + syntax)
-    $(".selectpicker").val(syntax); 
+    $(".selectpicker").val(syntax);
   }
 
   function save() {
