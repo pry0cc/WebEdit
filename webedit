@@ -36,7 +36,8 @@ get '/code/' + key do
 	@title = filename
 	@ip = ip
 	@key = key
-	@mode = "ace/mode/#{lang}"
+	# @mode = "ace/mode/#{lang}"
+	@mode = lang
 	erb :edit
 end
 

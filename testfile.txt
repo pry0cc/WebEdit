@@ -1,9 +1,2 @@
-hello this is a file.
-
-i am editing this file
-
-
-hahhas
-
-
-oka
+#!/usr/bin/env ruby
+puts "hello world!"

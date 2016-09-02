@@ -217,7 +217,8 @@
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
-	  editor.session.setMode("<%= @mode %>");
+    changeSyntax("<%= @mode %>");
+	  // editor.session.setMode("<%= @mode %>");
 
   // save status, 1 = saved, 0 = not saved 2 = saving
   let save_status = 1;
@@ -230,12 +231,21 @@
       save();
     });
 
+    $(".selectpicker").change(function() {
+      changeSyntax($(".selectpicker").val());
+    });
+
     var listener = new window.keypress.Listener();
     listener.simple_combo("control s", function() {
       console.log("File saved");
       save();
     });
   });
+
+  function changeSyntax(syntax) {
+    editor.session.setMode("ace/mode/" + syntax)
+    $(".selectpicker").val(syntax); 
+  }
 
   function save() {
     update_indicator(2);
