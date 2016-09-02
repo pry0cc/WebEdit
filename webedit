@@ -2,6 +2,7 @@
 
 require 'sinatra'
 require 'nokogiri'
+
 set :environment, :production
 
 filename = ARGV[0]
@@ -11,13 +12,19 @@ require 'linguist'
 lang = Linguist::FileBlob.new(filename).language.to_s.downcase
 puts "Document Language detected as #{@language}"
 
+def gen_random_string(len)
+   (0...len).collect{rand(36).to_s(36)}.map{|x|
+(rand<0.5)?x:x.upcase}.join
+end
 
-key = "helloworld"
+key = gen_random_string(24)
+
 ip = "0.0.0.0"
 
 set :public_folder, 'public'
+set :views, '/usr/share/webedit/views'
 puts "go to http://#{ip}:4567/code/#{key}"
-project_dir = File.dirname(__FILE__)
+project_dir = "/usr/share/webedit"
 
 get '/code/' + key do
 	@file = File.open(filename, "r")
